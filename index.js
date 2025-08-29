@@ -40,3 +40,10 @@ for(const btn of callButtons){
     }
   });
 }
+
+// Clear function
+document.getElementById('clear-btn').addEventListener('click', function(){
+  while(historySection.children.length > 1){
+    historySection.removeChild(historySection.lastChild);
+  }
+})

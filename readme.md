@@ -1,4 +1,4 @@
-**Answer to question no : 01**
+# Answer to question no : 01
 
 ### 1. `getElementById()`
 
@@ -60,11 +60,11 @@ document.querySelectorAll(".card");
 
 
 
-**Answer to question no : 02**
+# Answer to question no : 02
 
-*To create a new element and insert it into the DOM, you need to follow these steps:*
+**To create a new element and insert it into the DOM, you need to follow these steps:**
 
-1. **Create a new element.**
+### 1. Create a new element.
 
 **Example:**
 
@@ -72,7 +72,7 @@ document.querySelectorAll(".card");
 let newElement = document.createElement("p");
 ```
 
-2. **Add some text inside that element.**
+### 2. Add some text inside that element.
 
 **Example:**
 
@@ -80,7 +80,7 @@ let newElement = document.createElement("p");
 newElement.textContent = "I have been newly added to the DOM!";
 ```
 
-3. **Optionally, add some attributes.**
+### 3. Optionally, add some attributes.
 
 **Example:**
 
@@ -88,7 +88,7 @@ newElement.textContent = "I have been newly added to the DOM!";
 newElement.setAttribute("class", "highlight");
 ```
 
-4. **Now insert the element into any part of the DOM.**
+### 4. Now insert the element into any part of the DOM.
 
 **Example:**
 
@@ -107,7 +107,7 @@ document.body.appendChild(newElement);
 
 
 
-**Answer to question no : 03**
+# Answer to question no : 03
 
 When an event occurs on an element on a website, the event does not stay confined to that element alone. It moves from the innermost element → to the outer element → then to the outer parent elements, traveling upward step by step. This process of the event traveling upwards through the parent elements is called **Event Bubbling**.
 
@@ -117,28 +117,29 @@ In other words, it works like a tree.
 
 
 
-**Answer to question no : 04**
+# Answer to question no : 04
 
 **Event delegation** means attaching an event listener to the parent element to handle the events of its child elements. In other words, instead of attaching separate event listeners to each child element, we attach a single event listener to the parent element to control the events of all child elements together.
 
-**Why is Event Delegation useful?**
-**1. Less code is needed.**
+## Why is Event Delegation useful?
+
+### 1. Less code is needed.
 Let’s say I have 100 buttons. If I add a separate `addEventListener` for each button, the code becomes large and time-consuming. But if I use event delegation, I can just add one listener to the parent.
 
-**2. Saves memory and improves performance.**
+### 2. Saves memory and improves performance.
 If there are many event listeners in the DOM, more memory is used and the browser has to do more work. But if I add just one listener to the parent, the browser uses less memory, reducing the load and improving performance.
 
-**3. Works with dynamically added elements.**
+### 3. Works with dynamically added elements.
 Let’s say I create a new button later using JavaScript. If I use direct event listeners, I have to manually add a new listener for that button. But with event delegation, since the listener is already attached to the parent, any new button added as a child will automatically be handled.
 
-**4. Code becomes simple and clean, and easier to maintain.**
+### 4. Code becomes simple and clean, and easier to maintain.
 If the number of buttons increases or decreases later, I don’t need to go into each element and modify the event listeners. With just one listener on the parent, everything can be controlled.
 
 
 
-**Answer to question no : 05**
+# Answer to question no : 05
 
-**`preventDefault()`**
+### `preventDefault()`
 
 This method is used to stop an element’s default behavior.
 
@@ -150,7 +151,7 @@ document.querySelector("a").addEventListener("click", function(event) {
 });
 ```
 
-**`stopPropagation()`**
+### `stopPropagation()`
 
 This method keeps the event confined only to the element where it occurred and does not allow it to propagate upwards to its parent elements.
 In other words, it stops Event Bubbling.

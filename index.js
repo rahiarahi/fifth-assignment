@@ -25,7 +25,7 @@ for(const btn of callButtons){
       coinBox.innerText = coins - 20;
 
       const historyCard = document.createElement('div');
-      historyCard.innerHTML = `<div class="flex justify-between md:gap-5 bg-[#fafafa] rounded-lg p-4 mb-2">
+      historyCard.innerHTML = `<div class="flex justify-between md:gap-5 bg-[#f7f7f7] rounded-lg p-4 mb-2">
           <div>
             <h2 class="font-bold">${title}</h2>
             <p>${number}</p>
@@ -47,3 +47,19 @@ document.getElementById('clear-btn').addEventListener('click', function(){
     historySection.removeChild(historySection.lastChild);
   }
 })
+
+
+// Copy Button
+const copyButton = document.getElementsByClassName('copy-btn');
+for(const btn of copyButton){
+  btn.addEventListener('click', function(){
+    const card = btn.closest('.card');
+    const number = card.querySelector('.card-number').innerText;
+
+    navigator.clipboard.writeText(number).then(() => {
+      alert('Copied!');
+      const copyBox = parseInt(document.getElementById('copy-box').innerText);
+      document.getElementById('copy-box').innerText = copyBox + 1;
+    })
+  })
+}

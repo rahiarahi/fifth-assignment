@@ -10,18 +10,33 @@ for(const heartIcon of heartIcons){
 
 // Call Section
 const callButtons = document.getElementsByClassName('call-btn');
-for(const callBtn of callButtons){
-  callBtn.addEventListener('click', function(){
-    const coinBox = parseInt(document.getElementById('coin-box').innerText);
-    if(coinBox >= 20){
-      const card = callBtn.closest('.card');
-      const h2Text = card.querySelector('.card-title').innerText;
-      const h1Text = card.querySelector('.card-number').innerText;
-      alert('Calling ' + h2Text + ' ' + h1Text);
-      document.getElementById('coin-box').innerText = coinBox - 20;
+const historySection = document.getElementById('history-section');
+const coinBox = document.getElementById('coin-box');
+for(const btn of callButtons){
+  btn.addEventListener('click', function(){
+    let coins = parseInt(coinBox.innerText);
+
+    const card = btn.closest('.card');
+    const title = card.querySelector('.card-title').innerText;
+    const number = card.querySelector('.card-number').innerText;
+    if(coins >= 20){
+      const liveTime = new Date().toLocaleTimeString();
+      alert('📞Calling... \n' + title + ' : ' + number);
+      coinBox.innerText = coins - 20;
+
+      const historyCard = document.createElement('div');
+      historyCard.innerHTML = `<div class="flex justify-between md:gap-5 bg-[#fafafa] rounded-lg p-4 mb-2">
+          <div>
+            <h2 class="font-bold">${title}</h2>
+            <p>${number}</p>
+          </div>
+          <div class="flex items-center"><h2>${liveTime}</h2></div>
+        </div>`;
+    
+    historySection.appendChild(historyCard);
     }
     else{
       alert('Not enough coins!');
     }
-  })
+  });
 }
